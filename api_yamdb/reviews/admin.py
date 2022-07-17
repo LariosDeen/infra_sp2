@@ -4,7 +4,11 @@ from .models import User, Category, Genre, Title, GenreTitle, Review, Comment
 
 
 class UserAdmin(admin.ModelAdmin):
-    exclude = ('confirmation_code',)
+    list_display = (
+        'pk', 'username', 'is_superuser', 'role', 'confirmation_code',
+        'password'
+    )
+    exclude = ('bio',)
 
 
 class CategoryAdmin(admin.ModelAdmin):
